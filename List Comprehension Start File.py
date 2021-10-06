@@ -107,16 +107,22 @@ this is line4
 this is line5
 
 Save the file as test.txt """
-
-
+infile = open("test.txt", "r")
+text_list = [rec for rec in infile if "line3" in rec]
+print(text_list)
 # Output: ['this is line3']
 
 
 # 9) Using functions in list comprehension
 
 # Create a function and name it double:
+def double(x):
+    return x * 2
 
 
+print(double(10))
+doubled_list = [double(x) for x in range(10)]
+print(doubled_list)
 # If you now just print that function with a value in it, it should look like this:
 
 
@@ -130,12 +136,13 @@ Save the file as test.txt """
 
 
 # 10) adding an IF condition to the above
-
-
+doubled_even = [double(x) for x in range(10) if x % 2 == 0]
+print(doubled_even)
 # Output - [0, 4, 8, 12, 16]
 
 
 # 11) You can add more arguments (using multiple iterators and lists):
-
+ans = [x + y for x in [10, 20, 30] for y in [20, 40, 60]]
+print(ans)
 
 # Output - [30, 50, 70, 50, 70, 90, 70, 90, 110]
